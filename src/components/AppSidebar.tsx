@@ -237,23 +237,6 @@ export default function AppSidebar() {
 
                   <SidebarMenuItem>
                     <SidebarMenuButton
-                      tooltip="Create Project"
-                      render={
-                        <Link
-                          href="/admin/projects/new"
-                          className="flex items-center gap-2"
-                        >
-                          <Plus className="size-4" />
-                          <span className="group-data-[collapsible=icon]:hidden">
-                            Create Project
-                          </span>
-                        </Link>
-                      }
-                    />
-                  </SidebarMenuItem>
-
-                  <SidebarMenuItem>
-                    <SidebarMenuButton
                       tooltip="Project Reports"
                       render={
                         <Link
