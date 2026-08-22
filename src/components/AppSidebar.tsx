@@ -1,216 +1,372 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator } from "./ui/sidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarSeparator,
+} from "./ui/sidebar";
+
+import {
+  BarChart3,
+  Bell,
+  CalendarDays,
+  ChevronDown,
+  ChevronUp,
+  FileText,
+  FolderKanban,
+  HelpCircle,
+  LayoutDashboard,
+  Plus,
+  Search,
+  Settings,
+  ShieldCheck,
+  Users,
+  User2,
+} from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 
-import { Calendar, ChevronDownIcon, ChevronUp, Home, Inbox, Plus, Projector, Search, Settings, User2 } from "lucide-react";
+const mainNavigation = [
+  {
+    title: "Dashboard",
+    url: "/admin",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "Analytics",
+    url: "/admin/analytics",
+    icon: BarChart3,
+  },
+  {
+    title: "Users",
+    url: "/admin/users",
+    icon: Users,
+  },
+  {
+    title: "Calendar",
+    url: "/admin/calendar",
+    icon: CalendarDays,
+  },
+  {
+    title: "Notifications",
+    url: "/admin/notifications",
+    icon: Bell,
+  },
+];
 
-const items = [
-    {
-        title: "Home",
-        url: "/",
-        icon: Home
-    },
-    {
-        title: "Inbox",
-        url: "/",
-        icon: Inbox
-    },
-    {
-        title: "Calender",
-        url: "/",
-        icon: Calendar
-    },
-    {
-        title: "Search",
-        url: "/",
-        icon: Search
-    },
-    {
-        title: "Settings",
-        url: "/",
-        icon: Settings
-    },
-]
+const managementNavigation = [
+  {
+    title: "Projects",
+    url: "/admin/projects",
+    icon: FolderKanban,
+  },
+  {
+    title: "Documents",
+    url: "/admin/documents",
+    icon: FileText,
+  },
+  {
+    title: "Security",
+    url: "/admin/security",
+    icon: ShieldCheck,
+  },
+];
 
 export default function AppSidebar() {
-    return (
-        <Sidebar side="left" collapsible="icon">
+  return (
+    <Sidebar side="left" collapsible="icon">
+      {/* Brand */}
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              tooltip="Rishav Admin"
+              className="justify-start group-data-[collapsible=icon]:justify-center"
+              render={
+                <Link href="/admin" className="flex w-full items-center gap-2">
+                  <Image
+                    src="/vercel.svg"
+                    alt="Rishav Admin"
+                    width={16}
+                    height={16}
+                  />
 
-            {/* Sidebar content */}
-            <SidebarHeader>
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton
-                            render={
-                                <Link href='/'>
-                                    <Image src="/vercel.svg" alt="profile" width={20} height={20} />
-                                    <span>rishav raj</span>
-                                </Link>
-                            }
-                        />
-                    </SidebarMenuItem>
+                  <span className="font-semibold group-data-[collapsible=icon]:hidden">
+                    Rishav Admin
+                  </span>
+                </Link>
+              }
+            />
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+
+      <SidebarSeparator />
+
+      <SidebarContent className="w-full">
+        {/* Overview */}
+        <SidebarGroup>
+          <SidebarGroupLabel className="font-bold">
+            Overview
+          </SidebarGroupLabel>
+
+          <SidebarGroupContent>
+            <SidebarMenu className="gap-1">
+              {mainNavigation.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton
+                      tooltip={item.title}
+                      className="justify-start group-data-[collapsible=icon]:justify-center"
+                      render={
+                        <Link
+                          href={item.url}
+                          className="flex w-full items-center gap-2"
+                        >
+                          <Icon className="size-4 shrink-0" />
+                          <span className="group-data-[collapsible=icon]:hidden">
+                            {item.title}
+                          </span>
+                        </Link>
+                      }
+                    />
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Management */}
+        <SidebarGroup>
+          <SidebarGroupLabel className="font-bold">
+            Management
+          </SidebarGroupLabel>
+
+          <SidebarGroupAction title="Add project">
+            <Plus />
+            <span className="sr-only">Add project</span>
+          </SidebarGroupAction>
+
+          <SidebarGroupContent>
+            <SidebarMenu className="gap-1">
+              {managementNavigation.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton
+                      tooltip={item.title}
+                      className="justify-start group-data-[collapsible=icon]:justify-center"
+                      render={
+                        <Link
+                          href={item.url}
+                          className="flex w-full items-center gap-2"
+                        >
+                          <Icon className="size-4 shrink-0" />
+                          <span className="group-data-[collapsible=icon]:hidden">
+                            {item.title}
+                          </span>
+                        </Link>
+                      }
+                    />
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Workspace */}
+        <Collapsible>
+          <SidebarGroup>
+            <SidebarGroupLabel className="font-bold">
+              <CollapsibleTrigger className="flex w-full items-center">
+                <span>Workspace</span>
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu className="gap-1">
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      tooltip="All Projects"
+                      render={
+                        <Link
+                          href="/admin/projects"
+                          className="flex items-center gap-2"
+                        >
+                          <FolderKanban className="size-4" />
+                          <span className="group-data-[collapsible=icon]:hidden">
+                            All Projects
+                          </span>
+                        </Link>
+                      }
+                    />
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      tooltip="Create Project"
+                      render={
+                        <Link
+                          href="/admin/projects/new"
+                          className="flex items-center gap-2"
+                        >
+                          <Plus className="size-4" />
+                          <span className="group-data-[collapsible=icon]:hidden">
+                            Create Project
+                          </span>
+                        </Link>
+                      }
+                    />
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      tooltip="Project Reports"
+                      render={
+                        <Link
+                          href="/admin/reports"
+                          className="flex items-center gap-2"
+                        >
+                          <FileText className="size-4" />
+                          <span className="group-data-[collapsible=icon]:hidden">
+                            Project Reports
+                          </span>
+                        </Link>
+                      }
+                    />
+                  </SidebarMenuItem>
                 </SidebarMenu>
-            </SidebarHeader>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
 
-            <SidebarSeparator />
+        <SidebarSeparator />
 
-            <SidebarContent>
+        {/* Administration */}
+        <SidebarGroup>
+          <SidebarGroupLabel className="font-bold">
+            Administration
+          </SidebarGroupLabel>
 
-                <SidebarGroup>
-                    <SidebarGroupLabel>Application</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu className="space-y-1">
-                            {items.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton className="cursor-pointer space-y-5">
-                                        <a href={item.url} className="flex items-center space-x-2">
-                                            <item.icon />
-                                            <span>{item.title}</span>
-                                        </a>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu className="gap-1">
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  tooltip="Settings"
+                  className="justify-start group-data-[collapsible=icon]:justify-center"
+                  render={
+                    <Link
+                      href="/admin/settings"
+                      className="flex w-full items-center gap-2"
+                    >
+                      <Settings className="size-4" />
+                      <span className="group-data-[collapsible=icon]:hidden">
+                        Settings
+                      </span>
+                    </Link>
+                  }
+                />
+              </SidebarMenuItem>
 
-                <SidebarSeparator />
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  tooltip="Help Center"
+                  className="justify-start group-data-[collapsible=icon]:justify-center"
+                  render={
+                    <Link
+                      href="/admin/help"
+                      className="flex w-full items-center gap-2"
+                    >
+                      <HelpCircle className="size-4" />
+                      <span className="group-data-[collapsible=icon]:hidden">
+                        Help Center
+                      </span>
+                    </Link>
+                  }
+                />
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
 
-                <SidebarGroup>
-                    <SidebarGroupLabel>Projects</SidebarGroupLabel>
-                    <SidebarGroupAction>
-                        <Plus /><span className="sr-only">Add Projects</span>
-                    </SidebarGroupAction>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton
-                                    render={
-                                        <Link href={'/'}><Projector />See All Projects</Link>
-                                    }
-                                />
-                            </SidebarMenuItem>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton
-                                    render={
-                                        <Link href={'/'}><Plus />Add Projects</Link>
-                                    }
-                                />
-                            </SidebarMenuItem>
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
+      {/* User menu */}
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <SidebarMenuButton
+                    tooltip="Rishav's account"
+                    className="justify-start group-data-[collapsible=icon]:justify-center"
+                  >
+                    <User2 className="size-4" />
 
-                <SidebarSeparator />
+                    <span className="group-data-[collapsible=icon]:hidden">
+                      Rishav
+                    </span>
 
-                <Collapsible>
-                    <SidebarGroup>
-                        <SidebarGroupLabel
-                            render={
-                                <CollapsibleTrigger>
-                                    <span>Product details</span>
-                                    <ChevronDownIcon className="ml-auto group-data-panel-open/button:rotate-180" />
-                                </CollapsibleTrigger>
-                            }
-                        />
-                        <CollapsibleContent>
-                            <SidebarGroupContent>
-                                <SidebarMenu>
-                                    <SidebarMenuItem>
-                                        <SidebarMenuButton
-                                            render={
-                                                <Link href={'/'}><Projector />See All Projects</Link>
-                                            }
-                                        />
-                                    </SidebarMenuItem>
-                                    <SidebarMenuItem>
-                                        <SidebarMenuButton
-                                            render={
-                                                <Link href={'/'}><Plus />Add Projects</Link>
-                                            }
-                                        />
-                                    </SidebarMenuItem>
-                                </SidebarMenu>
-                            </SidebarGroupContent>
-                        </CollapsibleContent>
-                    </SidebarGroup>
-                </Collapsible>
+                    <ChevronUp className="ml-auto group-data-[collapsible=icon]:hidden" />
+                  </SidebarMenuButton>
+                }
+              />
 
-                <SidebarSeparator />
+              <DropdownMenuContent side="top" align="start">
+                <DropdownMenuItem>
+                  <User2 className="mr-2 size-4" />
+                  Profile
+                </DropdownMenuItem>
 
-                <SidebarGroup>
-                    <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton
-                                    render={
-                                        <Link href={'/'}><Projector />See All Projects</Link>
-                                    }
-                                />
-                                <SidebarMenuSub>
-                                    <SidebarMenuSubItem>
-                                        <SidebarMenuSubButton
-                                            render={
-                                                <Link href={'/'}><Plus /> Add Project</Link>
-                                            }
-                                        />
-                                    </SidebarMenuSubItem>
-                                    <SidebarMenuSubItem>
-                                        <SidebarMenuSubButton
-                                            render={
-                                                <Link href={'/'}><Plus /> Add Project</Link>
-                                            }
-                                        />
-                                    </SidebarMenuSubItem>
-                                    <SidebarMenuSubItem>
-                                        <SidebarMenuSubButton
-                                            render={
-                                                <Link href={'/'}><Plus /> Add Project</Link>
-                                            }
-                                        />
-                                    </SidebarMenuSubItem>
-                                </SidebarMenuSub>
-                            </SidebarMenuItem>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton
-                                    render={
-                                        <Link href={'/'}><Plus />Add Projects</Link>
-                                    }
-                                />
-                            </SidebarMenuItem>
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
+                <DropdownMenuItem>
+                  <Settings className="mr-2 size-4" />
+                  Settings
+                </DropdownMenuItem>
 
-            </SidebarContent>
+                <DropdownMenuSeparator />
 
-            {/* Sidebar Footer */}
-            <SidebarFooter>
-                <SidebarMenu>
-                    <SidebarMenuItem className="cursor-pointer">
-                        <DropdownMenu>
-                            <DropdownMenuTrigger
-                                render={
-                                    <SidebarMenuButton>
-                                        <User2 /> rishav raj <ChevronUp className="ml-auto" />
-                                    </SidebarMenuButton>
-                                }
-                            />
-                            <DropdownMenuContent>
-                                <DropdownMenuItem>Account</DropdownMenuItem>
-                                <DropdownMenuItem>Setting</DropdownMenuItem>
-                                <DropdownMenuItem variant="destructive">Sign out</DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </SidebarMenuItem>
-                </SidebarMenu>
-            </SidebarFooter>
-        </Sidebar>
-    );
-};
+                <DropdownMenuItem variant="destructive">
+                  Sign out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
+    </Sidebar>
+  );
+}
