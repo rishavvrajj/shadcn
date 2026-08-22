@@ -1,7 +1,7 @@
 'use client'
 
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
-import { LogOut, Moon, Settings, Sun, User } from 'lucide-react'
+import { LogOut, Menu, Moon, Settings, Sun, User } from 'lucide-react'
 
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
@@ -16,30 +16,32 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { SidebarTrigger } from './ui/sidebar'
 
 export default function NavBar() {
 
     const { theme, setTheme } = useTheme();
-    return (
-        <nav className='flex items-center justify-between p-4 border-2 border-black'>
 
-            {/* Sidebar */}
-            <div><Moon /></div>
+    return (
+        <nav className='flex items-center justify-between p-4 w-full z-10'>
 
             {/* Nav */}
-            <Link href='/'>Dashboard</Link>
+            <div className='flex items-center justify-center space-x-2'>
+                <SidebarTrigger size={"icon-lg"}/>
+                <Link className='text-sm cursor-pointer' href='/'>Dashboard</Link>
+            </div>
 
             {/* Menu */}
             <div className='flex items-center justify-end space-x-2'>
 
                 {/* Theme Menu */}
                 <DropdownMenu>
-                <DropdownMenuTrigger>
-                    <Button variant="outline" size="icon" className="cursor-pointer">
+                <DropdownMenuTrigger
+                    render={<Button variant="outline" size="icon" className="cursor-pointer"/>}
+                >
                     <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
                     <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
                     <span className="sr-only">Toggle theme</span>
-                    </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                     <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("light")}>

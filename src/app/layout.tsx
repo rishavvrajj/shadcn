@@ -4,12 +4,12 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 
-import SideBar from "@/components/SideBar";
 import NavBar from "@/components/NavBar";
-
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/AppSidebar";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,19 +33,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex flex-col">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <SideBar>
-            <main>
-              <NavBar />
-              <div className="">{children}</div>
-            </main>
-          </SideBar>
+          <SidebarProvider>
+          <AppSidebar />
+          <main className="w-full">
+            <NavBar />
+            <div className="">{children}</div>
+          </main>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>
