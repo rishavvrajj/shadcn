@@ -51,27 +51,27 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collap
 const mainNavigation = [
   {
     title: "Dashboard",
-    url: "/admin",
+    url: "/",
     icon: LayoutDashboard,
   },
   {
     title: "Analytics",
-    url: "/admin/analytics",
+    url: "/",
     icon: BarChart3,
   },
   {
     title: "Users",
-    url: "/admin/users",
+    url: "/",
     icon: Users,
   },
   {
     title: "Calendar",
-    url: "/admin/calendar",
+    url: "/",
     icon: CalendarDays,
   },
   {
     title: "Notifications",
-    url: "/admin/notifications",
+    url: "/",
     icon: Bell,
   },
 ];
@@ -79,17 +79,17 @@ const mainNavigation = [
 const managementNavigation = [
   {
     title: "Projects",
-    url: "/admin/projects",
+    url: "/",
     icon: FolderKanban,
   },
   {
     title: "Documents",
-    url: "/admin/documents",
+    url: "/",
     icon: FileText,
   },
   {
     title: "Security",
-    url: "/admin/security",
+    url: "/",
     icon: ShieldCheck,
   },
 ];

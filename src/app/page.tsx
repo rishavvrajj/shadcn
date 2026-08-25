@@ -6,7 +6,7 @@ import { AppPieChart } from '@/components/AppPieChart';
 
 export default function page() {
   return (
-    <div className='grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-4 p-4'>
+    <div className='grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-4 p-4 h-full'>
       <div className='bg-card rounded-lg p-4'>
         <AppPieChart />
       </div>

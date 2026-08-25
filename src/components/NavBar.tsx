@@ -23,7 +23,7 @@ export default function NavBar() {
     const { theme, setTheme } = useTheme();
 
     return (
-        <nav className='flex items-center justify-between p-4 w-full z-10'>
+        <nav className='flex items-center justify-between px-2 pt-4 w-full z-10'>
 
             {/* Nav */}
             <div className='flex items-center justify-center space-x-2'>
