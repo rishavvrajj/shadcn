@@ -53,7 +53,7 @@ export function AppPieChart() {
 
   return (
       <div>
-        <h1 className="mb-4 text-lg font-medium">Total Revenue</h1>
+        <h1 className="mb-4 text-lg font-medium">Browser Users</h1>
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
