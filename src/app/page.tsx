@@ -4,6 +4,7 @@ import { AppBarChart } from '@/components/AppBarChart';
 import { AppAreaChart } from '@/components/AppAreaChart';
 import { AppPieChart } from '@/components/AppPieChart';
 import CardList from '@/components/CardList';
+import TodoList from '@/components/TodoList';
 
 export default function page() {
   return (
@@ -23,7 +24,9 @@ export default function page() {
       <div className='bg-card h-full rounded-lg p-4 lg:col-span-2'>
         <AppAreaChart />
       </div>
-      <div className='bg-card h-full rounded-lg p-4'>Test</div>
+      <div className='bg-card h-full rounded-lg p-4'>
+        <TodoList />
+      </div>
     </div>
   )
 };

@@ -105,18 +105,18 @@ export default function AppSidebar() {
               tooltip="Rishav Admin"
               className="justify-start group-data-[collapsible=icon]:justify-center"
               render={
-                <Link href="/" className="flex w-full items-center gap-2">
+                <Link href="/" className="flex w-full items-center gap-2 mt-2">
                   <Image
                     src="/vercel.svg"
                     alt="Admin Logo"
-                    width={8}
-                    height={8}
+                    width={4}
+                    height={4}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="h-8 w-8"
+                    className="h-4 w-4"
                   />
 
                   <span className="font-semibold text-lg group-data-[collapsible=icon]:hidden">
-                    Rishav Admin
+                    rishav raj
                   </span>
                 </Link>
               }
