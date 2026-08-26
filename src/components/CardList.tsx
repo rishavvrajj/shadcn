@@ -32,6 +32,7 @@ const popularContent = [
         image: 'https://images.unsplash.com/photo-1605745341112-85968b19335b',
         count: 6400,
     },
+    
 ];
 
 const latestTransactions = [
