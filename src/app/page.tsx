@@ -13,7 +13,7 @@ export default function page() {
         <AppBarChart />
       </div>
       <div className='bg-card h-full rounded-lg p-4'>
-        <CardList title={'Latest Transactions'} />
+        <CardList title={'Active Customers'} />
       </div>
       <div className='bg-card h-full rounded-lg p-4'>
         <AppPieChart />
