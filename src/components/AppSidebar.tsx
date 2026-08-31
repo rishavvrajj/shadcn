@@ -107,10 +107,10 @@ export default function AppSidebar() {
               render={
                 <Link href="/" className="flex w-full items-center gap-2 mt-2">
                   <Image
-                    src="/vercel.svg"
+                    src="/logo.png"
                     alt="Admin Logo"
-                    width={4}
-                    height={4}
+                    width={8}
+                    height={8}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-4 w-4"
                   />

@@ -42,40 +42,40 @@ export default function TodoList() {
       </Popover>
       {/* List */}
       <ScrollArea className={"w-full h-60"}>
-        <div className={'flex flex-col gap-4 m-1'}>
+        <div className={'flex flex-col gap-4 m-1 mr-4'}>
 
           <Card className={'p-4'}>
-            <div className='flex items-start gap-4'>
+            <div className='flex items-start justify-start truncate gap-2'>
               <Checkbox id='item1' />
               <label htmlFor='item1' className={'text-xs text-muted-foreground'}>Review August churn report.</label>
             </div>
           </Card>
           <Card className={'p-4'}>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-start justify-start truncate gap-2'>
               <Checkbox id='item1' />
               <label htmlFor='item1' className={'text-xs text-muted-foreground'}>Follow up with three failed payments.</label>
             </div>
           </Card>
           <Card className={'p-4'}>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-start justify-start truncate gap-2'>
               <Checkbox id='item1' />
               <label htmlFor='item1' className={'text-xs text-muted-foreground'}>Publish the PostgreSQL indexing article.</label>
             </div>
           </Card>
           <Card className={'p-4'}>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-start justify-start truncate gap-2'>
               <Checkbox id='item1' />
               <label htmlFor='item1' className={'text-xs text-muted-foreground'}>Invite the customer success team.</label>
             </div>
           </Card>
           <Card className={'p-4'}>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-start justify-start truncate gap-2'>
               <Checkbox id='item1' />
               <label htmlFor='item1' className={'text-xs text-muted-foreground'}>Investigate the mobile conversion drop.</label>
             </div>
           </Card>
           <Card className={'p-4'}>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-start justify-start truncate gap-2'>
               <Checkbox id='item1' />
               <label htmlFor='item1' className={'text-xs text-muted-foreground'}>Prepare the September revenue forecast.</label>
             </div>
