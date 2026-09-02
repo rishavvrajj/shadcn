@@ -107,7 +107,7 @@ export default function AppSidebar() {
               render={
                 <Link href="/" className="flex w-full items-center gap-2 mt-2">
                   <Image
-                    src="/logo.png"
+                    src="/favicon.png"
                     alt="Admin Logo"
                     width={8}
                     height={8}

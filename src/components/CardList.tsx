@@ -24,7 +24,7 @@ const popularContent: CardItem[] = [
     {
         id: 1,
         title: 'BrightLayer Technologies',
-        badge: 'Growth plan renewal',
+        badge: '6.3k learners',
         image:
             'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&h=400&q=80',
         value: '25.0K',
@@ -109,13 +109,14 @@ export default function CardList({
                     {title}
                 </h1>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 mx-1">
                     {list.map((item) => (
                         <Card
                             key={item.id}
-                            className="m-0.5 flex-row items-center justify-between p-2"
+                            className="flex flex-row items-center justify-between gap-3 p-2"
                         >
-                            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-sm">
+                            {/* Image Section */}
+                            <div className="relative h-12 w-12 overflow-hidden rounded-sm shrink-0">
                                 <Image
                                     src={item.image}
                                     alt={item.title}
@@ -126,23 +127,24 @@ export default function CardList({
                                 />
                             </div>
 
-                            <CardContent className="min-w-0 flex-1 space-y-1 p-0">
+                            {/* Content Section */}
+                            <div className="min-w-0 flex-1 space-y-1">
                                 <CardTitle className="truncate text-xs font-medium">
                                     {item.title}
                                 </CardTitle>
-
-                                <Badge variant="secondary">
+                                <Badge variant="secondary" className='text-xs'>
                                     {item.badge}
                                 </Badge>
-                            </CardContent>
+                            </div>
 
-                            <CardFooter className="shrink-0 p-0 text-xs text-muted-foreground">
+                            {/* Value Section */}
+                            <div className="text-xs shrink-0">
                                 {item.value}
-                            </CardFooter>
+                            </div>
                         </Card>
                     ))}
                 </div>
             </div>
         </ScrollArea>
     );
-}
+};
