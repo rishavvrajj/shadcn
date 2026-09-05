@@ -1,7 +1,6 @@
 'use client'
 
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../../../components/ui/breadcrumb'
-import CardList from '../../../components/LiveListeners'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import { BadgeCheck, Candy, Citrus, Shield } from 'lucide-react'
 import { Progress, ProgressLabel, ProgressValue } from '@/components/ui/progress'
@@ -11,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import EditUser from '@/components/EditUser'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { AppLineChart } from '@/components/AppLineChart'
+import LiveListeners from '../../../components/LiveListeners'
 
 export default function User() {
   return (
@@ -123,7 +123,7 @@ export default function User() {
           </div>
           {/* Card List Container */}
           <div className="bg-card p-4 rounded-lg">
-            <CardList title="Recent Transations" />
+            <LiveListeners />
           </div>
         </div>
         {/* Right */}
