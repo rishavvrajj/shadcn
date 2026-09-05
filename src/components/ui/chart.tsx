@@ -98,13 +98,13 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
             ([theme, prefix]) => `
 ${prefix} [data-chart=${id}] {
 ${colorConfig
-  .map(([key, itemConfig]) => {
-    const color =
-      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ??
-      itemConfig.color
-    return color ? `  --color-${key}: ${color};` : null
-  })
-  .join("\n")}
+                .map(([key, itemConfig]) => {
+                  const color =
+                    itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ??
+                    itemConfig.color
+                  return color ? `  --color-${key}: ${color};` : null
+                })
+                .join("\n")}
 }
 `
           )
@@ -191,7 +191,7 @@ function ChartTooltipContent({
   return (
     <div
       className={cn(
-        "grid min-w-32 items-start gap-1.5 rounded-lg border border-border/50 bg-background px-2.5 py-1.5 text-xs shadow-xl",
+        "grid w-52 min-w-52 items-start gap-1.5 rounded-lg border border-border/50 bg-background px-3 py-2 text-xs shadow-xl",
         className
       )}
     >
@@ -254,9 +254,13 @@ function ChartTooltipContent({
                       </div>
                       {item.value != null && (
                         <span className="font-mono font-medium text-foreground tabular-nums">
-                          {typeof item.value === "number"
-                            ? item.value.toLocaleString()
-                            : String(item.value)}
+                          {(() => {
+                            const value = Number(item.value)
+
+                            return Number.isFinite(value)
+                              ? `$${(value / 1000).toFixed(1)}k`
+                              : String(item.value)
+                          })()}
                         </span>
                       )}
                     </div>
@@ -338,8 +342,8 @@ function getPayloadConfigFromPayload(
 
   const payloadPayload =
     "payload" in payload &&
-    typeof payload.payload === "object" &&
-    payload.payload !== null
+      typeof payload.payload === "object" &&
+      payload.payload !== null
       ? payload.payload
       : undefined
 

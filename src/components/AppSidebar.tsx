@@ -98,7 +98,7 @@ export default function AppSidebar() {
   return (
     <Sidebar side="left" collapsible="icon">
       {/* Brand */}
-      <SidebarHeader>
+      <SidebarHeader className="">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
@@ -116,7 +116,7 @@ export default function AppSidebar() {
                   />
 
                   <span className="font-semibold text-lg group-data-[collapsible=icon]:hidden">
-                    rishav raj
+                    Spotify
                   </span>
                 </Link>
               }
@@ -129,7 +129,7 @@ export default function AppSidebar() {
 
       <SidebarContent className="w-full">
         {/* Overview */}
-        <SidebarGroup>
+        <SidebarGroup className="">
           <SidebarGroupLabel className="font-bold">
             Overview
           </SidebarGroupLabel>
@@ -172,7 +172,7 @@ export default function AppSidebar() {
           </SidebarGroupLabel>
 
           <SidebarGroupAction title="Add project">
-            <Plus />
+            <Plus size={16} />
             <span className="sr-only">Add project</span>
           </SidebarGroupAction>
 
@@ -208,12 +208,12 @@ export default function AppSidebar() {
         <SidebarSeparator />
 
         {/* Workspace */}
-        <Collapsible>
+        <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel className="font-bold">
-              <CollapsibleTrigger className="flex w-full items-center">
+              <CollapsibleTrigger className="group flex w-full items-center">
                 <span>Workspace</span>
-                <ChevronDown className="ml-auto transition-transform group-data-[state=open]:rotate-180" />
+                <ChevronDown size={16} className="ml-auto transition-transform duration-300 group-data-open/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
 

@@ -12,12 +12,12 @@ import {
 } from "@/components/ui/chart"
 
 const chartData = [
-    { month: "January", desktop: 186000, mobile: 80000 },
-    { month: "February", desktop: 305000, mobile: 200000 },
-    { month: "March", desktop: 237000, mobile: 120000 },
-    { month: "April", desktop: 73000, mobile: 190000 },
-    { month: "May", desktop: 209000, mobile: 130000 },
-    { month: "June", desktop: 214000, mobile: 140000 },
+    { month: "January", desktop: 786437, mobile: 583620 },
+    { month: "February", desktop: 605346, mobile: 568273 },
+    { month: "March", desktop: 537346, mobile: 821623 },
+    { month: "April", desktop: 630363, mobile: 897827 },
+    { month: "May", desktop: 709346, mobile: 536276 },
+    { month: "June", desktop: 814363, mobile: 740726 },
 ]
 
 const chartConfig = {
@@ -34,7 +34,7 @@ const chartConfig = {
 export function AppBarChart() {
     return (
         <div>
-            <h1 className="mb-4 text-lg font-medium">Monthly recurring revenue</h1>
+            <h1 className="mb-4 text-lg font-medium">Monthly Recurring Revenue</h1>
             <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
                 <BarChart accessibilityLayer data={chartData}>
                     <CartesianGrid vertical={false} />
@@ -49,16 +49,11 @@ export function AppBarChart() {
                         tickLine={false}
                         tickMargin={10}
                         axisLine={false}
-                        // Divides numbers like 186000 by 1000 to display $186k
                         tickFormatter={(value) => `$${value / 1000}k`}
                     />
-                    <ChartTooltip 
-                        content={
-                            <ChartTooltipContent 
-                                // Optional: Formats the numbers inside the tooltip popup too
-                                formatter={(value) => `$${Number(value).toLocaleString()}`} 
-                            />
-                        } 
+                    <ChartTooltip
+                        cursor={false}
+                        content={ <ChartTooltipContent /> }
                     />
                     <ChartLegend content={<ChartLegendContent />} />
                     <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
