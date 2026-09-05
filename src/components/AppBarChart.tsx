@@ -34,7 +34,8 @@ const chartConfig = {
 export function AppBarChart() {
     return (
         <div>
-            <h1 className="mb-4 text-lg font-medium">Monthly Recurring Revenue</h1>
+            <h1 className="text-md font-medium">Monthly Revenue</h1>
+            <p className="mb-2 text-sm text-muted-foreground">  Revenue generated from desktop and mobile users over the last 6 months.</p>
             <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
                 <BarChart accessibilityLayer data={chartData}>
                     <CartesianGrid vertical={false} />
@@ -53,9 +54,8 @@ export function AppBarChart() {
                     />
                     <ChartTooltip
                         cursor={false}
-                        content={ <ChartTooltipContent /> }
+                        content={<ChartTooltipContent />}
                     />
-                    <ChartLegend content={<ChartLegendContent />} />
                     <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
                     <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
                 </BarChart>

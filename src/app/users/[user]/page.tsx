@@ -1,7 +1,7 @@
 'use client'
 
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../../../components/ui/breadcrumb'
-import CardList from '../../../components/CardList'
+import CardList from '../../../components/LiveListeners'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import { BadgeCheck, Candy, Citrus, Shield } from 'lucide-react'
 import { Progress, ProgressLabel, ProgressValue } from '@/components/ui/progress'
