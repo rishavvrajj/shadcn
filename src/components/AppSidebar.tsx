@@ -23,9 +23,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   SidebarSeparator,
 } from "./ui/sidebar";
 
@@ -40,7 +37,6 @@ import {
   HelpCircle,
   LayoutDashboard,
   Plus,
-  Search,
   Settings,
   ShieldCheck,
   Users,
@@ -103,7 +99,7 @@ export default function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton
               tooltip="Rishav Admin"
-              className="justify-start group-data-[collapsible=icon]:justify-center"
+              className="justify-start group-data-[collapsible=icon]:justify-center transition-all duration-300 card"
               render={
                 <Link href="/" className="flex w-full items-center gap-2 mt-2">
                   <Image
@@ -140,10 +136,10 @@ export default function AppSidebar() {
                 const Icon = item.icon;
 
                 return (
-                  <SidebarMenuItem key={item.title}>
+                  <SidebarMenuItem key={item.title} >
                     <SidebarMenuButton
                       tooltip={item.title}
-                      className="justify-start group-data-[collapsible=icon]:justify-center"
+                      className="justify-start group-data-[collapsible=icon]:justify-center transition-all duration-300 card"
                       render={
                         <Link
                           href={item.url}
@@ -185,7 +181,7 @@ export default function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       tooltip={item.title}
-                      className="justify-start group-data-[collapsible=icon]:justify-center"
+                      className="justify-start group-data-[collapsible=icon]:justify-center transition-all duration-300 card"
                       render={
                         <Link
                           href={item.url}
@@ -223,6 +219,7 @@ export default function AppSidebar() {
                   <SidebarMenuItem>
                     <SidebarMenuButton
                       tooltip="All Projects"
+                      className="transition-all duration-300 card"
                       render={
                         <Link
                           href="/admin/projects"
@@ -240,6 +237,7 @@ export default function AppSidebar() {
                   <SidebarMenuItem>
                     <SidebarMenuButton
                       tooltip="Project Reports"
+                      className="transition-all duration-300 card"
                       render={
                         <Link
                           href="/admin/reports"
@@ -272,7 +270,7 @@ export default function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   tooltip="Settings"
-                  className="justify-start group-data-[collapsible=icon]:justify-center"
+                  className="justify-start group-data-[collapsible=icon]:justify-center transition-all duration-300 card"
                   render={
                     <Link
                       href="/admin/settings"
@@ -290,7 +288,7 @@ export default function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   tooltip="Help Center"
-                  className="justify-start group-data-[collapsible=icon]:justify-center"
+                  className="justify-start group-data-[collapsible=icon]:justify-center transition-all duration-300 card"
                   render={
                     <Link
                       href="/admin/help"
@@ -318,7 +316,7 @@ export default function AppSidebar() {
                 render={
                   <SidebarMenuButton
                     tooltip="Rishav's account"
-                    className="justify-start group-data-[collapsible=icon]:justify-center"
+                    className="justify-start group-data-[collapsible=icon]:justify-center transition-all duration-300 card"
                   >
                     <User2 className="size-4" />
 
@@ -332,19 +330,19 @@ export default function AppSidebar() {
               />
 
               <DropdownMenuContent side="top" align="start">
-                <DropdownMenuItem>
+                <DropdownMenuItem className={'cursor-pointer transition-all duration-300 card'}>
                   <User2 className="mr-2 size-4" />
                   Profile
                 </DropdownMenuItem>
 
-                <DropdownMenuItem>
+                <DropdownMenuItem className={'cursor-pointer transition-all duration-300 card'}>
                   <Settings className="mr-2 size-4" />
                   Settings
                 </DropdownMenuItem>
 
                 <DropdownMenuSeparator />
 
-                <DropdownMenuItem variant="destructive">
+                <DropdownMenuItem variant="destructive" className={'cursor-pointer transition-all duration-300 card'}>
                   Sign out
                 </DropdownMenuItem>
               </DropdownMenuContent>
