@@ -44,7 +44,7 @@ export default function NavBar() {
     }
 
     return (
-        <nav className='flex items-center justify-between px-2 pt-2 w-full sticky z-10 bg-background'>
+        <nav className='flex items-center justify-between sticky z-10 top-0 px-2 p-1 w-full bg-background'>
 
             {/* Nav */}
             <div className='flex items-center justify-center'>

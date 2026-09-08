@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-
 import { cn } from "@/lib/utils";
 
 import NavBar from "@/components/NavBar";
@@ -42,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           <SidebarProvider>
           <AppSidebar />
-          <main className="w-full">
+          <main className="relative w-full">
             <NavBar />
             <div className="">{children}</div>
           </main>

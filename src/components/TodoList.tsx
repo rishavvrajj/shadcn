@@ -217,7 +217,7 @@ export default function TodoList() {
             }
           />
 
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-full p-0" align="start">
             <Calendar
               mode="single"
               selected={date}

@@ -1,0 +1,373 @@
+import React from 'react'
+
+import { Payment, columns } from './columns'
+import { DataTable } from './data-table'
+
+const getData = async (): Promise<Payment[]> => {
+    return [
+        {
+            id: '123532',
+            amount: 764,
+            status: 'Pending',
+            username: 'John Doe',
+            email: 'johndoe@gmail.com',
+        },
+        {
+            id: '123533',
+            amount: 637,
+            status: 'Failed',
+            username: 'Jane Smith',
+            email: 'janesmith@gmail.com',
+        },
+        {
+            id: '123534',
+            amount: 177,
+            status: 'Failed',
+            username: 'Robert Johnson',
+            email: 'robertjohnson@gmail.com',
+        },
+        {
+            id: '123535',
+            amount: 958,
+            status: 'Pending',
+            username: 'Emily Davis',
+            email: 'emilydavis@gmail.com',
+        },
+        {
+            id: '123536',
+            amount: 108,
+            status: 'Failed',
+            username: 'Michael Brown',
+            email: 'michaelbrown@gmail.com',
+        },
+        {
+            id: '123537',
+            amount: 442,
+            status: 'Success',
+            username: 'Sarah Wilson',
+            email: 'sarahwilson@gmail.com',
+        },
+        {
+            id: '123538',
+            amount: 371,
+            status: 'Success',
+            username: 'David Lee',
+            email: 'davidlee@gmail.com',
+        },
+        {
+            id: '123539',
+            amount: 975,
+            status: 'Success',
+            username: 'Laura Martinez',
+            email: 'lauramartinez@gmail.com',
+        },
+        {
+            id: '123540',
+            amount: 782,
+            status: 'Pending',
+            username: 'James Taylor',
+            email: 'jamestaylor@gmail.com',
+        },
+        {
+            id: '123541',
+            amount: 939,
+            status: 'Pending',
+            username: 'Olivia Anderson',
+            email: 'oliviaanderson@gmail.com',
+        },
+        {
+            id: '123542',
+            amount: 116,
+            status: 'Success',
+            username: 'William Thomas',
+            email: 'williamthomas@gmail.com',
+        },
+        {
+            id: '123543',
+            amount: 531,
+            status: 'Pending',
+            username: 'Emma Jackson',
+            email: 'emmajackson@gmail.com',
+        },
+        {
+            id: '123544',
+            amount: 198,
+            status: 'Success',
+            username: 'Daniel White',
+            email: 'danielwhite@gmail.com',
+        },
+        {
+            id: '123545',
+            amount: 247,
+            status: 'Pending',
+            username: 'Sophia Harris',
+            email: 'sophiaharris@gmail.com',
+        },
+        {
+            id: '123546',
+            amount: 951,
+            status: 'Pending',
+            username: 'Matthew Martin',
+            email: 'matthewmartin@gmail.com',
+        },
+        {
+            id: '123547',
+            amount: 267,
+            status: 'Success',
+            username: 'Isabella Garcia',
+            email: 'isabellagarcia@gmail.com',
+        },
+        {
+            id: '123548',
+            amount: 121,
+            status: 'Pending',
+            username: 'Christopher Rodriguez',
+            email: 'christopherrodriguez@gmail.com',
+        },
+        {
+            id: '123549',
+            amount: 997,
+            status: 'Failed',
+            username: 'Mia Lopez',
+            email: 'mialopez@gmail.com',
+        },
+        {
+            id: '123550',
+            amount: 895,
+            status: 'Success',
+            username: 'Andrew Gonzalez',
+            email: 'andrewgonzalez@gmail.com',
+        },
+        {
+            id: '123551',
+            amount: 851,
+            status: 'Failed',
+            username: 'Charlotte Perez',
+            email: 'charlotteperez@gmail.com',
+        },
+        {
+            id: '123552',
+            amount: 997,
+            status: 'Failed',
+            username: 'Joseph Moore',
+            email: 'josephmoore@gmail.com',
+        },
+        {
+            id: '123553',
+            amount: 840,
+            status: 'Failed',
+            username: 'Amelia Clark',
+            email: 'ameliaclark@gmail.com',
+        },
+        {
+            id: '123554',
+            amount: 310,
+            status: 'Failed',
+            username: 'Joshua Lewis',
+            email: 'joshualewis@gmail.com',
+        },
+        {
+            id: '123555',
+            amount: 935,
+            status: 'Success',
+            username: 'Harper Walker',
+            email: 'harperwalker@gmail.com',
+        },
+        {
+            id: '123556',
+            amount: 749,
+            status: 'Pending',
+            username: 'Ryan Hall',
+            email: 'ryanhall@gmail.com',
+        },
+        {
+            id: '123557',
+            amount: 326,
+            status: 'Success',
+            username: 'Evelyn Allen',
+            email: 'evelynallen@gmail.com',
+        },
+        {
+            id: '123558',
+            amount: 419,
+            status: 'Failed',
+            username: 'Nicholas Young',
+            email: 'nicholasyoung@gmail.com',
+        },
+        {
+            id: '123559',
+            amount: 312,
+            status: 'Pending',
+            username: 'Abigail King',
+            email: 'abigailking@gmail.com',
+        },
+        {
+            id: '123560',
+            amount: 832,
+            status: 'Pending',
+            username: 'Jonathan Wright',
+            email: 'jonathanwright@gmail.com',
+        },
+        {
+            id: '123561',
+            amount: 151,
+            status: 'Success',
+            username: 'Elizabeth Hill',
+            email: 'elizabethhill@gmail.com',
+        },
+        {
+            id: '123562',
+            amount: 868,
+            status: 'Pending',
+            username: 'Benjamin Scott',
+            email: 'benjaminscott@gmail.com',
+        },
+        {
+            id: '123563',
+            amount: 194,
+            status: 'Failed',
+            username: 'Sofia Green',
+            email: 'sofiagreen@gmail.com',
+        },
+        {
+            id: '123564',
+            amount: 162,
+            status: 'Pending',
+            username: 'Samuel Adams',
+            email: 'samueladams@gmail.com',
+        },
+        {
+            id: '123565',
+            amount: 518,
+            status: 'Failed',
+            username: 'Avery Baker',
+            email: 'averybaker@gmail.com',
+        },
+        {
+            id: '123566',
+            amount: 443,
+            status: 'Success',
+            username: 'Alexander Nelson',
+            email: 'alexandernelson@gmail.com',
+        },
+        {
+            id: '123567',
+            amount: 527,
+            status: 'Failed',
+            username: 'Ella Carter',
+            email: 'ellacarter@gmail.com',
+        },
+        {
+            id: '123568',
+            amount: 592,
+            status: 'Success',
+            username: 'Patrick Mitchell',
+            email: 'patrickmitchell@gmail.com',
+        },
+        {
+            id: '123569',
+            amount: 412,
+            status: 'Pending',
+            username: 'Scarlett Roberts',
+            email: 'scarlettroberts@gmail.com',
+        },
+        {
+            id: '123570',
+            amount: 858,
+            status: 'Pending',
+            username: 'Henry Turner',
+            email: 'henryturner@gmail.com',
+        },
+        {
+            id: '123571',
+            amount: 889,
+            status: 'Success',
+            username: 'Grace Phillips',
+            email: 'gracephillips@gmail.com',
+        },
+        {
+            id: '123572',
+            amount: 162,
+            status: 'Failed',
+            username: 'Jack Campbell',
+            email: 'jackcampbell@gmail.com',
+        },
+        {
+            id: '123573',
+            amount: 487,
+            status: 'Success',
+            username: 'Chloe Parker',
+            email: 'chloeparker@gmail.com',
+        },
+        {
+            id: '123574',
+            amount: 882,
+            status: 'Success',
+            username: 'Dennis Evans',
+            email: 'dennisevans@gmail.com',
+        },
+        {
+            id: '123575',
+            amount: 539,
+            status: 'Success',
+            username: 'Victoria Edwards',
+            email: 'victoriaedwards@gmail.com',
+        },
+        {
+            id: '123576',
+            amount: 885,
+            status: 'Success',
+            username: 'Jerry Collins',
+            email: 'jerrycollins@gmail.com',
+        },
+        {
+            id: '123577',
+            amount: 236,
+            status: 'Failed',
+            username: 'Riley Stewart',
+            email: 'rileystewart@gmail.com',
+        },
+        {
+            id: '123578',
+            amount: 997,
+            status: 'Failed',
+            username: 'Tyler Sanchez',
+            email: 'tylersanchez@gmail.com',
+        },
+        {
+            id: '123579',
+            amount: 596,
+            status: 'Failed',
+            username: 'Aria Morris',
+            email: 'ariamorris@gmail.com',
+        },
+        {
+            id: '123580',
+            amount: 391,
+            status: 'Success',
+            username: 'Aaron Rogers',
+            email: 'aaronrogers@gmail.com',
+        },
+        {
+            id: '123581',
+            amount: 267,
+            status: 'Failed',
+            username: 'Lily Reed',
+            email: 'lilyreed@gmail.com',
+        },
+    ];
+};
+
+export default async function PaymentsPage() {
+
+    const data = await getData();
+
+    return (
+        <div className="gap-2 px-4 py-2 h-full">
+            <div className="mb-8 px-4 py-2 bg-secondary rounded-md">
+                <h1 className="font-semibold">All Payments</h1>
+            </div>
+            <DataTable columns={columns} data={data} />
+        </div>
+    )
+}
